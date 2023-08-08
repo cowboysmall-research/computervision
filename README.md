@@ -1,21 +1,21 @@
-# Computer Vision #
+# CowboySmall
 
-## Description ##
+[![PyPI - Version](https://img.shields.io/pypi/v/cowboysmall.svg)](https://pypi.org/project/cowboysmall)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/cowboysmall.svg)](https://pypi.org/project/cowboysmall)
 
+-----
 
-this project contains simple implementations of computer vision algorithms:
+**Table of Contents**
 
+- [Installation](#installation)
+- [License](#license)
 
-* Hough Transform
+## Installation
 
-
-to run the examples:
-
-
+```console
+pip install cowboysmall
 ```
 
-    python3 -m examples.hough.hough_transform
+## License
 
-```
-
-
+`cowboysmall` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
