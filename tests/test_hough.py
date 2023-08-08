@@ -1,6 +1,3 @@
-import sys
-import warnings
-
 from cowboysmall.cv import hough
 
 

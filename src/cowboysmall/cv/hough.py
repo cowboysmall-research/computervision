@@ -1,23 +1,21 @@
-import sys
 import math
 
 import numpy as np
-
 from numpy.typing import NDArray
 
-from PIL import Image
+from PIL import Image as img
+from PIL.Image import Image
 
 
-
-def read_image(path: str) -> Image.Image:
-    return Image.open(path).convert('L')
+def read_image(path: str) -> Image:
+    return img.open(path).convert('L')
 
 
 def write_image(space: NDArray[np.uint8], path: str) -> None:
-    Image.fromarray(space).save(path)
+    img.fromarray(space).save(path)
 
 
-def hough_space(image: Image.Image, width: int = 640, height: int = 480) -> NDArray[np.uint8]:
+def hough_space(image: Image, width: int = 640, height: int = 480) -> NDArray[np.uint8]:
     img    = image.load()
     w, h   = image.size
     diag   = math.hypot(w, h)
