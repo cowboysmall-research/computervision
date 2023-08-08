@@ -3,24 +3,26 @@ import math
 
 import numpy as np
 
+from numpy.typing import NDArray
+
 from PIL import Image
 
 
 
-def read_image(path):
+def read_image(path: str) -> Image:
     return Image.open(path).convert('L')
 
 
-def write_image(space, path):
+def write_image(space: NDArray[np.uint8], path: str) -> None:
     Image.fromarray(space).save(path)
 
 
-def hough_space(image, width = 640, height = 480):
+def hough_space(image: Image, width: int = 640, height: int = 480) -> NDArray[np.uint8]:
     img    = image.load()
     w, h   = image.size
     diag   = math.hypot(w, h)
 
-    accum  = np.full((height, width), 255, dtype = np.uint8)
+    space  = np.full((height, width), 255, dtype = np.uint8)
 
     thetas = np.arange(0, math.pi, math.pi / width)
     cos    = np.cos(thetas)
@@ -32,7 +34,7 @@ def hough_space(image, width = 640, height = 480):
                 for x in range(width):
                     rho = i * cos[x] + j * sin[x]
                     y   = int((height / 2) + round((rho / (diag * 2)) * height))
-                    accum[y, x] -= 1
+                    space[y, x] -= 1
 
-    return accum
+    return space
 
