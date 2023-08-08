@@ -9,7 +9,7 @@ from PIL import Image
 
 
 
-def read_image(path: str) -> Image:
+def read_image(path: str) -> Image.Image:
     return Image.open(path).convert('L')
 
 
@@ -17,7 +17,7 @@ def write_image(space: NDArray[np.uint8], path: str) -> None:
     Image.fromarray(space).save(path)
 
 
-def hough_space(image: Image, width: int = 640, height: int = 480) -> NDArray[np.uint8]:
+def hough_space(image: Image.Image, width: int = 640, height: int = 480) -> NDArray[np.uint8]:
     img    = image.load()
     w, h   = image.size
     diag   = math.hypot(w, h)
